@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "571313500799",
+    "project_id": "skillsync-56cd6",
+    "storage_bucket": "skillsync-56cd6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571313500799:android:05082aef27c5f95c0d854a",
+        "android_client_info": {
+          "package_name": "com.skillsync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3i69zub-4LZZm-YSEzVmdNS7MZbTQ6EE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
