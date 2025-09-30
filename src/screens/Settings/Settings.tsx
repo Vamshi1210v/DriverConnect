@@ -9,7 +9,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
-
 type FormData = {
   name: string;
   email: string;
@@ -236,7 +235,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
   },
   profileCard: {

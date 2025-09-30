@@ -5,6 +5,7 @@ import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, ScrollView, 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { RootStackParamList } from '../../navigation/NavigationTypes';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import LinearGradient from 'react-native-linear-gradient';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Settings'>;
 
@@ -42,9 +43,14 @@ const ProfileScreen = () => {
     navigation.navigate('Settings');
   };
 
+  const handleReferandEarn =() => {
+    navigation.navigate("ReferAndEarn");
+  };
+
   const handleNavigateToVerifications = () => {
     // navigation.navigate('Verifications');
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subConatiner}>
@@ -117,11 +123,14 @@ const ProfileScreen = () => {
           </View>
         ))}
       </View>
-
-      <TouchableOpacity style={styles.referButton}>
-        <Ionicons name="add-circle-outline" size={20} color="#fff" />
-        <Text style={styles.referText}>Refer Friends & Businesses</Text>
-      </TouchableOpacity>
+      
+      <TouchableOpacity style={styles.referWrapper} onPress={handleReferandEarn}>
+          <LinearGradient colors={['#FF6B9A', '#FF4081']} style={styles.referButton}>
+            <Ionicons name="add-circle-outline" size={20} color="#fff" />
+            <Text style={styles.referText}>Invite Friends, Earn Rewards</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      
       </View>
     </SafeAreaView>
   );
@@ -253,20 +262,23 @@ const styles = StyleSheet.create({
     color: '#444',
     marginRight: 10,
   },
+  referWrapper: {
+     marginTop: 20 ,
+     paddingVertical: 14,
+     borderRadius: 30,
+     flexDirection: 'row',
+     justifyContent: 'center',
+     alignItems: 'center',
+    },
   referButton: {
-    backgroundColor: '#FF4081',
-    paddingVertical: 14,
-    borderRadius: 30,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
+     height:60,
+     width:"90%",
+     borderRadius:30,
+     flexDirection:"row",
+     alignItems:"center",
+     justifyContent:"center"
   },
-  referText: {
-    color: '#fff',
-    fontWeight: '600',
-    marginLeft: 10,
-  },
+  referText: { color: '#fff', fontWeight: '600', marginLeft: 10,textAlign:'center' },
 });
 
 export default ProfileScreen;

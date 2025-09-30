@@ -29,10 +29,9 @@ const HomeScreenTabs = () => {
           marginHorizontal: 10,
           marginTop: 10,
           borderRadius: 20,
-          elevation: 4,
-          shadowColor: "#000",
-          shadowOpacity: 0.1,
-          shadowRadius: 8,
+          elevation: 2,
+          shadowColor: "#fff",
+          borderColor:"#ff6f00"
         },
         tabBarActiveTintColor: "#FF6F00",
         tabBarInactiveTintColor: "#999",

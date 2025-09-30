@@ -1,0 +1,52 @@
+// import 'react-native-url-polyfill/auto';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { createClient } from '@supabase/supabase-js';
+
+// const SUPABASE_URL = 'https://pzlhyxteduvaopbozvwp.supabase.co';
+// const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6bGh5eHRlZHV2YW9wYm96dndwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3OTA1MTgsImV4cCI6MjA3NDM2NjUxOH0.ZRFTaBsUUo9Ev4W9y68jmGRudEEvzTsBhziyVSziqSs';
+
+// export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+//   auth: {
+//     storage: AsyncStorage,
+//     autoRefreshToken: true,
+//     persistSession: true,
+//     detectSessionInUrl: false,
+//   },
+// });
+
+
+
+
+import { AppState, Platform } from 'react-native'
+import 'react-native-url-polyfill/auto'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { createClient, processLock } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://bdzcusucmzdqcbtnyhmu.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkemN1c3VjbXpkcWNidG55aG11Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkwNjgwMTAsImV4cCI6MjA3NDY0NDAxMH0.GUu8Vpclj_BkOfOsnhC-fa1lGIHfjXmsia4vLvmJz5Y';
+
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    ...(Platform.OS !== "web" ? { storage: AsyncStorage } : {}),
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
+    lock: processLock,
+  },
+})
+
+// Tells Supabase Auth to continuously refresh the session automatically
+// if the app is in the foreground. When this is added, you will continue
+// to receive `onAuthStateChange` events with the `TOKEN_REFRESHED` or
+// `SIGNED_OUT` event if the user's session is terminated. This should
+// only be registered once.
+if (Platform.OS !== "web") {
+  AppState.addEventListener('change', (state) => {
+    if (state === 'active') {
+      supabase.auth.startAutoRefresh()
+    } else {
+      supabase.auth.stopAutoRefresh()
+    }
+  })
+}

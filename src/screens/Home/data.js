@@ -1,7 +1,7 @@
  export const cardData = [
     {
       id: 1,
-      title: "Card 1",
+      title: "ONE WAY TRIP",
       paymentMethod: "Paid by Cash",
       description: "Graph.js:157:22 error during build process",
       location: "Hyderabad",

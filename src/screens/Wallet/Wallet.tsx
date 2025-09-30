@@ -1,26 +1,32 @@
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import data from '../../components/CustomFlatlist/src/data'
-import ScratchCardScreen from '../ScratchCard/ScratchCard'
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { RootStackParamList } from '../../navigation/NavigationTypes'
 
 const Wallet = () => {
-
+ const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  
     const renderItem = ({ item }: { item: any }) => {
         return (
             <View style={{ flex: 1, margin: 10, backgroundColor: '#fff', borderRadius: 10, padding: 20 }}>
-                {/* <Image source={{ uri: item.image }} style={{ width: '100%', height: 100, borderRadius: 10 }} /> */}
-                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>hi</Text>
-                <Text style={{ fontSize: 14, color: '#666' }}>htfytfyjhguygu</Text>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{item.name}</Text>
+                <Text style={{ fontSize: 14, color: '#666' }}>{item.price}</Text>
             </View>
         )
+    }
+
+    const handleAddAmount = () => {
+        navigation.navigate("AddAmount");
     }
 
     return (
         <View style={styles.safeArea}>
             <View style={styles.mainCircle}>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.addMoneyButton}>
-                        <Text style={styles.moneyText}>Add Amount</Text>
+                    <TouchableOpacity style={styles.addMoneyButton} onPress={handleAddAmount}>
+                        <Text style={styles.moneyText}> + Add Amount</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
@@ -33,7 +39,7 @@ const Wallet = () => {
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}
-                numColumns={2}
+                numColumns={1}
                 showsVerticalScrollIndicator={false}
             />
             </View>
@@ -52,7 +58,7 @@ const styles = StyleSheet.create({
         flex: 2,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#237FAD',
+        backgroundColor: '#3373B0',
         borderBottomLeftRadius: 60,
         borderBottomRightRadius: 60,
         padding: 20,

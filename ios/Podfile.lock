@@ -108,6 +108,7 @@ PODS:
   - hermes-engine (0.78.0):
     - hermes-engine/Pre-built (= 0.78.0)
   - hermes-engine/Pre-built (0.78.0)
+  - JitsiWebRTC (124.0.2)
   - lottie-ios (4.5.0)
   - lottie-react-native (7.2.4):
     - DoubleConversion
@@ -1454,6 +1455,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-webrtc (124.0.6):
+    - JitsiWebRTC (~> 124.0.0)
+    - React-Core
   - React-NativeModulesApple (0.78.0):
     - glog
     - hermes-engine
@@ -1742,6 +1746,27 @@ PODS:
     - React-perflogger (= 0.78.0)
     - React-utils (= 0.78.0)
   - RecaptchaInterop (100.0.0)
+  - RNCAsyncStorage (1.24.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNFBApp (21.12.0):
     - Firebase/CoreOnly (= 11.8.0)
     - React-Core
@@ -1770,7 +1795,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNGestureHandler (2.27.2):
+  - RNGestureHandler (2.28.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1792,7 +1817,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated (3.19.0):
+  - RNReanimated (3.19.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1814,10 +1839,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated (= 3.19.0)
-    - RNReanimated/worklets (= 3.19.0)
+    - RNReanimated/reanimated (= 3.19.1)
+    - RNReanimated/worklets (= 3.19.1)
     - Yoga
-  - RNReanimated/reanimated (3.19.0):
+  - RNReanimated/reanimated (3.19.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1839,9 +1864,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated/apple (= 3.19.0)
+    - RNReanimated/reanimated/apple (= 3.19.1)
     - Yoga
-  - RNReanimated/reanimated/apple (3.19.0):
+  - RNReanimated/reanimated/apple (3.19.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1864,7 +1889,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated/worklets (3.19.0):
+  - RNReanimated/worklets (3.19.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1886,9 +1911,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/worklets/apple (= 3.19.0)
+    - RNReanimated/worklets/apple (= 3.19.1)
     - Yoga
-  - RNReanimated/worklets/apple (3.19.0):
+  - RNReanimated/worklets/apple (3.19.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2025,6 +2050,7 @@ DEPENDENCIES:
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-webrtc (from `../node_modules/react-native-webrtc`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-performancetimeline (from `../node_modules/react-native/ReactCommon/react/performance/timeline`)
@@ -2053,6 +2079,7 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFlashList (from `../node_modules/@shopify/flash-list`)"
@@ -2076,6 +2103,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - JitsiWebRTC
     - lottie-ios
     - nanopb
     - PromisesObjC
@@ -2166,6 +2194,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-webrtc:
+    :path: "../node_modules/react-native-webrtc"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -2222,6 +2252,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBAuth:
@@ -2260,6 +2292,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   GTMSessionFetcher: fc75fc972958dceedee61cb662ae1da7a83a91cf
   hermes-engine: b417d2b2aee3b89b58e63e23a51e02be91dc876d
+  JitsiWebRTC: b47805ab5668be38e7ee60e2258f49badfe8e1d0
   lottie-ios: a881093fab623c467d3bce374367755c272bdd59
   lottie-react-native: 9a244b96ba63018eeba02bfcf56f29786f93dadd
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
@@ -2296,6 +2329,7 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: b31e56a980634f383221bfefd5111d04c14c110b
   react-native-pager-view: a3da6756728d588966b7042c787c3567576448f0
   react-native-safe-area-context: 8cdab4bfef584e17a2f25e108d94df3e68ce8411
+  react-native-webrtc: 11de1ec579eddb59672126788ca9ff82805eadcc
   React-NativeModulesApple: b74b4e3004104429461593fe460ad790cc4928c2
   React-perflogger: ab51b7592532a0ea45bf6eed7e6cae14a368b678
   React-performancetimeline: 37192fd1019c3b3b597a877dff12f3af68305c34
@@ -2325,11 +2359,12 @@ SPEC CHECKSUMS:
   ReactCodegen: 299e99fc57c93edc7c5396ef1a39a3a4d494f25d
   ReactCommon: c8fdbc582b98a07daf201cd95c1da75dd029f3ee
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  RNCAsyncStorage: 2118709bfe9c313eba06d0ae7c34592a07de8243
   RNFBApp: 7cf039683867cbf8514bc3aafd756e6c5fb18898
   RNFBAuth: 1061296d2bc41c449e4ba90c537eb1346c9c5cfc
   RNFlashList: ee96301a697df5f39e5545b1e7b794327d33e85c
-  RNGestureHandler: 4108ee9da697670a5c9189874b82dc069ed5dbc4
-  RNReanimated: fcfb1651267122d0d7d547f567aa581a0a8e5c6f
+  RNGestureHandler: 433f2680b512ab94fe82e014365ea8785de09c4d
+  RNReanimated: 538641c029de8054fea09484386c95b4e74e2eff
   RNScreens: d3e6af187f88d577c016653ab68d8df432e1bbe4
   RNVectorIcons: 656546fa945a04b69d54169c5f0173855bbe6a1d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748

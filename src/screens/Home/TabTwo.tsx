@@ -4,7 +4,7 @@ import DataCard from './DataCard'
 
 const TabTwo = () => {
   return (
-    <DataCard/>
+    <DataCard option='two'/>
   )
 }
 
